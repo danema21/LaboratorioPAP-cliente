@@ -1,0 +1,295 @@
+/* atributos personalizados */
+$grey-soft: #6C757D
+$black: #292e33
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    background: url("img/webb-dark.png")
+
+.container
+    margin: auto
+    margin-top: 60px
+    padding: 0
+    width: 90%
+    max-width: 1000px
+    &.empty
+        text-align: center
+
+    .seleccion-plataforma
+        margin-top: 100px
+        margin-bottom: 100px
+
+        .content-plataforma
+            display: flex
+            flex-direction: row
+
+            .text
+                margin: auto
+                margin-right: 10px
+
+            .dropdown
+                width: 80%
+                text-align: center
+
+.error-espectaculos
+    font-size: 40px
+    font-weight: bold
+    color: $grey-soft
+
+.container-espectaculos
+    width: 100%
+    opacity: 0 
+    pointer-events: none
+    margin: auto
+    &.opacity_one
+        opacity: 1
+        pointer-events: all
+    .card
+        position: relative
+        width: 100%
+        margin-bottom: 20px
+        height: 233px
+        overflow: hidden
+        transition: all ease .2s
+        &.full_height
+            height: 350px
+        .card-header
+            padding: 0  
+            border: none
+            border-radius: none
+            .card-img-container
+                height: 165px
+                overflow: hidden
+                .card-img-top
+                    width: 100%
+            .card-title
+                margin: 20px 0
+                padding: 0 10px
+        .card-body
+            display: none
+            margin: 0
+            padding: 0 10px 20px 10px
+            .card-text-container
+                max-height: 60px
+                overflow: hidden
+                margin-bottom: 10px
+            .dateText
+                font-size: 14px
+                color: $grey-soft
+
+            .card-link
+                position: absolute
+                padding-bottom: inherit
+                padding-right: 10px
+                bottom: 0
+                right: 0
+                text-align: right
+            
+
+.modal-espectaculo
+    position: fixed
+    margin: auto
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%) scale(0)
+    width: 1000px
+    background: $black
+    transition: all ease .2s
+    z-index: 105
+    .close-btn
+        margin-right: 10px
+        right: 0
+        display: inline-block
+        z-index: 120
+    &.active
+        transform: translate(-50%, -50%) scale(1)
+
+    .img-container
+        width: 100%
+        height: 200px
+        cursor: pointer
+        overflow: hidden
+        img
+            width: 100%
+            margin: auto
+
+    .text-container
+        padding: 40px
+        color: #fff
+
+        .text-title
+            margin-bottom: 30px
+        .text
+            margin-bottom: 30px
+
+        .container-info-espectaculo
+            display: flex
+            flex-direction: row
+            font-size: 14px
+
+            .titles-info
+                .title-info
+                    margin-bottom: 5px
+                    color: #fff
+                    font-weight: bold
+
+            .info
+                margin-left: 40px
+                .info-item
+                    margin-bottom: 5px
+
+#modal-funciones
+    min-height: 600px
+    color: #fff
+    .text-title, #container-modal-funciones
+        margin: 20px
+
+.close-btn
+    position: absolute
+    background: transparent
+    border: none
+    font-size: 25px
+    color: rgba(255, 255, 255, .5)
+    &:hover
+        color: #fff
+
+.modal-content
+    background-color: $black
+    color: #fff
+    
+
+#back
+    position: relative
+    left: 0
+    margin: 20px 20px 0 20px
+
+.img-display
+    position: fixed
+    display: none
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 90vw
+    height: 90vh
+    overflow: hidden
+    z-index: 110
+    &.active
+        display: flex
+        align-items: center
+        z-index: 120
+    img
+        width: 100%
+    .close-btn
+        bottom: 0
+        display: none
+        margin: 0 0 40px 20px
+
+.table
+    font-size: 14px
+
+.overlay
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: rgba(0,0,0, .8)
+    opacity: 0
+    pointer-events: none
+    z-index: 100
+    transition: all ease-in-out .2s
+
+    &.active
+        opacity: 1
+        pointer-events: all
+
+        justify-content: column
+        align-items: end
+        .card
+            display: inline-block
+            width: 100%
+            top: 10px
+            &:hover
+                top: 0
+            .dateText
+                font-size: 14px
+                color: $grey-soft
+
+            .card-link
+                float: right
+            
+
+@media screen and (max-width: 1000px)
+    .modal-espectaculo
+        width: 100%
+    .img-display
+        height: 100vh
+        width: 100vw
+        .close-btn
+            display: inline-block
+  
+@media screen and (max-width: 768px)
+    .container-espectaculos
+        .col
+            margin: auto
+    .modal-espectaculo
+        #close
+            color: #fff
+            left: 0
+            margin-left: 10px       
+    
+    .table
+        font-size: 12px
+    
+    .container-info-espectaculo-meta
+        flex-direction: column
+        align-items: baseline
+        text-align: left
+        .info-meta  
+            margin-bottom: 10px
+            .title-info
+                color: #fff
+                margin-bottom: 0
+            .info-item
+                margin-bottom: 0
+        a
+            color: #fff
+
+@media screen and (min-width: 768px)
+    .card
+        &:hover
+            height: 350px
+            .card-body
+                display: block
+    
+    .modal-espectaculo
+        .img-container
+            img
+                position: relative
+                bottom: 250px
+
+@media screen and (max-width: 430px)
+    .modal-espectaculo
+        .text-container
+            padding: 20px
+            .text-title
+                margin-bottom: 20px
+            .text
+                margin-bottom: 20px
+
+    .container-info-espectaculo-meta    
+        font-size: 12px
+
+        .titles-info
+            .title-info
+                margin-bottom: 5px
+                color: #fff
+                font-weight: bold
+
+        .info
+            margin-left: 40px
+            .info-item
+                margin-bottom: 5px
